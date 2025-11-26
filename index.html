@@ -11,46 +11,55 @@
       --blue:#6ba8d6;
       --off:#f7f9f8;
       --card-bg:#ffffff;
+      --text:#2f6b4f;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: "Montserrat", "Open Sans", sans-serif;
       background:var(--off);
-      color:var(--green-dark);
+      color:var(--text);
       -webkit-font-smoothing:antialiased;
+      line-height:1.4;
     }
     header{
       position:fixed; top:0; left:0; right:0;
       display:flex; justify-content:space-between; align-items:center;
-      padding:18px 28px; background:#ffffffcc; backdrop-filter: blur(6px);
+      padding:14px 20px; background:#ffffffcc; backdrop-filter: blur(6px);
       z-index:100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    header h1{ margin:0; font-size:22px; color:var(--green-dark) }
-    nav .btn{ margin-left:10px; text-decoration:none; padding:8px 14px; border-radius:20px; background:var(--green); color:#fff; font-weight:600 }
-    main{ padding-top:100px; }
-    .hero{ display:flex; gap:24px; align-items:center; justify-content:space-between; padding:48px 28px; }
-    .hero-text h2{ font-size:36px; margin:0 0 12px 0; line-height:1.1 }
-    .hero-text p{ margin:0 0 18px 0; color:#2e5550 }
-    .btn-primary{ background:var(--green); color:#fff; padding:12px 20px; border-radius:28px; text-decoration:none; display:inline-block; }
-    .card-container{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; padding:18px 28px; }
-    .card{ background:var(--card-bg); border-radius:14px; padding:18px; box-shadow:0 8px 18px rgba(0,0,0,0.06) }
-    section{ padding:28px; }
-    h2.section-title{ margin:0 0 14px 0; color:var(--green-dark) }
+    header h1{ margin:0; font-size:20px; color:var(--green-dark) }
+    nav .btn{ margin-left:8px; text-decoration:none; padding:8px 12px; border-radius:20px; background:var(--green); color:#fff; font-weight:600 }
+    main{ padding-top:84px; max-width:1100px; margin:0 auto }
+    .hero{ display:flex; gap:20px; align-items:center; justify-content:space-between; padding:34px 16px; }
+    .hero-text h2{ font-size:30px; margin:0 0 10px 0; line-height:1.05 }
+    .hero-text p{ margin:0 0 16px 0; color:#2e5550 }
+    .btn-primary{ background:var(--green); color:#fff; padding:10px 18px; border-radius:28px; text-decoration:none; display:inline-block; font-weight:700; }
+    .card-container{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; padding:10px 16px; }
+    .card{ background:var(--card-bg); border-radius:12px; padding:14px; box-shadow:0 8px 18px rgba(0,0,0,0.06) }
+    section{ padding:18px; }
+    h2.section-title{ margin:6px 0 10px 0; color:var(--green-dark) }
+    .small { font-size:14px; color:#556f6a; }
     /* Form styles */
-    .diagnostic-form { display:grid; gap:12px; grid-template-columns:1fr; max-width:880px; }
+    .diagnostic-form { display:grid; gap:12px; grid-template-columns:1fr; max-width:960px; margin-top:8px; }
     .form-row { display:flex; gap:12px; align-items:center; }
-    label{ min-width:160px; font-weight:600; color:#2f6b4f }
-    select{ flex:1; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6; }
-    .center { display:flex; justify-content:center; margin-top:16px }
+    label{ min-width:160px; font-weight:700; color:var(--green-dark) }
+    select{ flex:1; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6; background:#fff; }
+    .center { display:flex; justify-content:center; margin-top:12px }
     /* Plano personalizado */
-    #plano { background:linear-gradient(180deg,#ffffff,#f8fffb); border-radius:12px; padding:20px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.04) }
+    #plano { background:linear-gradient(180deg,#ffffff,#f8fffb); border-radius:12px; padding:18px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.04) }
     .plan-section { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
-    .plan-card { background:#fff; border-radius:10px; padding:14px; box-shadow:0 6px 14px rgba(0,0,0,0.04) }
-    .small { font-size:13px; color:#547f77 }
-    footer{ text-align:center; padding:28px; background:var(--green-dark); color:#fff; margin-top:24px }
-    /* smooth scroll */
-    html { scroll-behavior: smooth; }
+    .plan-card { background:#fff; border-radius:10px; padding:12px; box-shadow:0 6px 14px rgba(0,0,0,0.04) }
+    .plan-summary { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between }
+    .hidden { display:none; }
+    .btn-ghost { border:1px solid #ddd; padding:8px 14px; border-radius:10px; background:transparent; cursor:pointer; }
+    .btn-copy { background:var(--blue); color:#fff; padding:8px 12px; border-radius:10px; border:none; cursor:pointer; }
+    .company-box { background:#fff; padding:12px; border-radius:10px; box-shadow:0 6px 12px rgba(0,0,0,0.04) }
+    footer{ text-align:center; padding:20px; background:var(--green-dark); color:#fff; margin-top:20px; border-radius:8px }
+    .daily-checklist { display:flex; gap:8px; flex-direction:column; }
+    .check-item { display:flex; align-items:center; gap:8px; background:#fff; padding:10px; border-radius:8px; }
+    .full-plan { margin-top:12px; }
     @media(max-width:900px){
       .hero{ flex-direction:column; text-align:left }
       .hero img{ width:90%; max-width:320px }
@@ -72,17 +81,17 @@
     <section id="inicio" class="hero">
       <div class="hero-text">
         <h2>Bem-estar com inovação e equilíbrio</h2>
-        <p>A VitaLab une tecnologia, saúde mental, exercícios e nutrição em um só lugar — plano personalizado para você e programa para empresas.</p>
+        <p class="small">Plano completo, personalizado e pronto para você — saúde física, mental e nutrição em um só lugar.</p>
         <a class="btn-primary" href="#diagnostico">Começar agora</a>
       </div>
-      <div><img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness" style="width:320px;border-radius:12px"></div>
+      <div style="width:280px"><img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness" style="width:100%;border-radius:12px"></div>
     </section>
 
     <!-- SOBRE -->
     <section id="sobre">
       <h2 class="section-title">Quem somos</h2>
-      <p class="small">A VitaLab é uma plataforma digital que cria planos personalizados para melhorar a saúde de pessoas e empresas, com foco em hábitos sustentáveis.</p>
-      <div class="card-container" style="margin-top:14px">
+      <p class="small">A VitaLab é uma plataforma digital que cria planos completos para pessoas e empresas, com foco em hábitos sustentáveis e prevenção.</p>
+      <div class="card-container" style="margin-top:12px">
         <div class="card">
           <h3>Missão</h3>
           <p class="small">Transformar o bem-estar através da inovação e autocuidado.</p>
@@ -101,7 +110,7 @@
     <!-- DIAGNÓSTICO -->
     <section id="diagnostico">
       <h2 class="section-title">Diagnóstico Inicial</h2>
-      <p class="small">Responda rapidamente para receber um plano personalizado.</p>
+      <p class="small">Responda rapidamente para receber seu plano personalizado — para você ou para sua empresa.</p>
 
       <form id="diagnosticForm" class="diagnostic-form" onsubmit="return false;">
         <div class="form-row">
@@ -149,25 +158,97 @@
           </select>
         </div>
 
+        <div class="form-row">
+          <label for="perfil">Você está preenchendo como:</label>
+          <select id="perfil" required>
+            <option value="usuario">Usuário</option>
+            <option value="empresa">Empresa (programa para colaboradores)</option>
+          </select>
+        </div>
+
         <div class="center">
           <button id="generateBtn" class="btn-primary" type="button">Gerar Plano</button>
         </div>
       </form>
 
-      <!-- Plano personalizado (inicialmente vazio) -->
+      <!-- Plano personalizado (inicialmente oculto) -->
       <div id="plano" style="display:none; margin-top:18px;">
-        <h3>Seu Plano VitaLab</h3>
-        <p class="small">Plano montado com base nas suas respostas — ajustes e acompanhamento na plataforma.</p>
-        <div id="planContent" class="plan-section" style="margin-top:12px;"></div>
+        <div class="plan-summary">
+          <div>
+            <h3>Resumo do seu plano</h3>
+            <p class="small" id="planIntro">Plano gerado com base nas suas respostas.</p>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <button id="viewFull" class="btn-ghost">Ver Plano Completo</button>
+            <button id="copyPlan" class="btn-copy">Copiar Plano</button>
+            <button id="printPlan" class="btn-ghost">Imprimir</button>
+          </div>
+        </div>
+
+        <div id="planCard" class="plan-section" style="margin-top:12px;"></div>
+
+        <!-- Área detalhada do plano (oculta até clicar em Ver Plano Completo) -->
+        <div id="fullPlan" class="full-plan hidden">
+          <h3>Plano Completo</h3>
+          <p class="small">Aqui está seu plano detalhado — dieta semanal, treinos, rotina de sono, práticas mentais e checklist diário.</p>
+
+          <div style="margin-top:12px;">
+            <h4>Dieta Semanal</h4>
+            <div id="dietWeek" class="card-container" style="margin-top:8px"></div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <h4>Treino Sugerido</h4>
+            <div id="trainingPlan" class="card-container" style="margin-top:8px"></div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <h4>Saúde Mental</h4>
+            <div id="mentalPlan" class="card-container" style="margin-top:8px"></div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <h4>Rotina de Sono</h4>
+            <div id="sleepPlan" class="card-container" style="margin-top:8px"></div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <h4>Metas & Checklist</h4>
+            <div class="card">
+              <strong>Metas da Semana</strong>
+              <ul id="weeklyGoals" class="small"></ul>
+            </div>
+            <div class="card" style="margin-top:8px;">
+              <strong>Checklist Diário</strong>
+              <div id="dailyChecklist" class="daily-checklist"></div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
     <section id="extras">
-      <h2 class="section-title">Benefícios para empresas</h2>
+      <h2 class="section-title">Programa para Empresas</h2>
       <div class="card-container">
-        <div class="card"><strong>Redução de afastamentos</strong><p class="small">Programas para colaboradores melhoram saúde e produtividade.</p></div>
-        <div class="card"><strong>Relatórios</strong><p class="small">Painel de dados com evolução da equipe (engajamento, metas).</p></div>
-        <div class="card"><strong>Workshops</strong><p class="small">Treinamentos para líderes e equipes sobre hábitos saudáveis.</p></div>
+        <div class="company-box">
+          <h4>Programa Corporativo VitaLab</h4>
+          <p class="small">Plano voltado para empresas: implementação gradual, workshops mensais, relatórios de engajamento e painéis com indicadores de saúde da equipe.</p>
+          <ul class="small">
+            <li>Onboarding com diagnóstico da equipe</li>
+            <li>Programas trimestrais (saúde física, mental e nutrição)</li>
+            <li>Relatórios de evolução para gestores</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Benefícios</h4>
+          <p class="small">Redução de afastamentos, aumento da produtividade, clima organizacional melhor.</p>
+        </div>
+        <div class="card">
+          <h4>Como contratar</h4>
+          <p class="small">Contato via email e proposta personalizada com preço por colaborador.</p>
+        </div>
       </div>
     </section>
 
@@ -177,69 +258,103 @@
   </main>
 
   <script>
-    // Função para gerar plano com base nas respostas
+    // Dados base para gerar planos
+    const dietTemplates = {
+      básico: {
+        seg: "Café: aveia com fruta. Almoço: arroz integral, frango grelhado, salada. Lanche: iogurte natural. Jantar: sopa de legumes.",
+        ter: "Café: mamão e pão integral. Almoço: peixe, batata doce, legumes. Lanche: castanhas. Jantar: salada com ovo cozido.",
+        qua: "Café: smoothie de banana e aveia. Almoço: quinoa com vegetais e tofu/ frango. Lanche: fruta. Jantar: grelhado + vegetais.",
+        qui: "Café: iogurte com granola. Almoço: macarrão integral com molho de tomate e proteína magra. Lanche: cenoura palito. Jantar: omelete com salada.",
+        sex: "Café: tapioca com queijo e fruta. Almoço: arroz integral, feijão, peixe, salada. Lanche: barrinha saudável. Jantar: caldo de legumes + proteína magra.",
+        sab: "Café: torradas integrais e frutas. Almoço: grelhado com legumes. Lanche: iogurte. Jantar: refeição leve (salada + proteína).",
+        dom: "Café: panqueca integral com frutas. Almoço: refeição família com porção equilibrada. Lanche: fruta. Jantar: leve."
+      },
+      melhorar: {
+        seg: "Café: fruta + iogurte. Almoço: proteína + carboidrato + salada. Lanche: fruta. Jantar: refogado leve.",
+        ter: "Café: mingau de aveia. Almoço: grelhado + salada. Lanche: castanhas. Jantar: sopa + proteína.",
+        qua: "Café: smoothie. Almoço: salada + proteína. Lanche: iogurte. Jantar: omelete.",
+        qui: "Café: fruta + pão integral. Almoço: arroz integral + legumes. Lanche: palitos de vegetais. Jantar: grelhado.",
+        sex: "Café: tapioca + fruta. Almoço: proteína magra + salada. Lanche: barrinha. Jantar: sopa.",
+        sab: "Café: ovos mexidos + torrada integral. Almoço: escolha equilibrada. Lanche: iogurte. Jantar: leve.",
+        dom: "Café: panqueca saudável. Almoço: porção balanceada. Lanche: fruta. Jantar: leve."
+      },
+      ruim: {
+        seg: "Café: comece com fruta. Almoço: escolha uma opção mais leve hoje (salada + proteína). Lanche: água + fruta. Jantar: sopa leve.",
+        ter: "Café: água + fruta. Almoço: salada + proteína. Lanche: castanhas. Jantar: refeição mais leve.",
+        qua: "Café: mingau simples. Almoço: grelhado + salada. Lanche: iogurte. Jantar: sopa.",
+        qui: "Café: fruta. Almoço: escolha proteína grelhada e salada. Lanche: fruta. Jantar: omelete.",
+        sex: "Café: fruta + água. Almoço: refeição balanceada. Lanche: nozes. Jantar: leve.",
+        sab: "Café: fruta. Almoço: grelhado + legumes. Lanche: iogurte. Jantar: leve.",
+        dom: "Café: panqueca leve. Almoço: porção equilibrada. Lanche: fruta. Jantar: leve."
+      }
+    };
+
+    const workouts = {
+      regular: {
+        nivel: "Regular",
+        treino: "3x por semana — dias alternados. 30–45min: combinação de cardio (20–30min) + força (15–20min). Inclua alongamentos ao final.",
+        exemplo: ["Seg: Corrida 30min + 10min alongamento", "Qua: Treino de força (membros superiores) 30min", "Sex: HIIT leve 25-30min + alongamento"]
+      },
+      ocasional: {
+        nivel: "Ocasional",
+        treino: "2x por semana. Inicie com caminhada e mobilidade. 20–30min por sessão.",
+        exemplo: ["Ter: Caminhada 25min + exercícios de mobilidade", "Qui: Circuito leve com 15-20min de força corporal"]
+      },
+      nunca: {
+        nivel: "Iniciante",
+        treino: "Comece com 15–20min diários: caminhada leve, subir escadas, alongamento. Aumente gradualmente.",
+        exemplo: ["Seg: Caminhada 15min + alongamento", "Qua: Mobilidade 15min", "Sex: Caminhada 20min"]
+      }
+    };
+
+    const mentalExercises = {
+      baixo: ["Continue com suas práticas prazerosas e mantenha rotina."],
+      medio: ["Pausa de 5 min (respiração 4-4), caminhada curta, prática de gratidão (3 coisas positivas)."],
+      alto: ["10 min de meditação guiada, técnica de respiração 4-4-4, buscar apoio profissional se necessário."]
+    };
+
+    const sleepAdvice = {
+      bom: "Mantenha sua rotina: horários constantes, evite telas 30 min antes, ambiente escuro e temperatura agradável.",
+      regular: "Ajuste horário gradualmente, reduza cafeína após 16h, pratique relaxamento antes de dormir.",
+      ruim: "Priorize higiene do sono: rotina noturna, evitar telas, técnicas de respiração; consultar especialista se persistir."
+    };
+
+    // Função para gerar plano completo
     function generatePlan(){
       const sono = document.getElementById('sono').value;
       const atividade = document.getElementById('atividade').value;
       const alimentacao = document.getElementById('alimentacao').value;
       const estresse = document.getElementById('estresse').value;
       const objetivo = document.getElementById('objetivo').value;
+      const perfil = document.getElementById('perfil').value;
 
-      // Monta recomendações simples (você pode editar)
-      const planos = {
-        atividade: {
-          regular: "Mantenha treinos regulares: 3x por semana (30-45min). Combine cardio e fortalecimento.",
-          ocasional: "Comece com 2x por semana: caminhadas de 30min, alongamento e rotina curta de força.",
-          nunca: "Inicie com pequenas caminhadas diárias: 15-20 minutos e exercícios de mobilidade."
-        },
-        alimentacao: {
-          equilibrada: "Continue com uma alimentação balanceada: distribua proteínas, carboidratos complexos e vegetais.",
-          melhorar: "Inclua mais frutas, verduras e reduza ultraprocessados. Planeje 3 refeições principais com lanches saudáveis.",
-          muito_ruim: "Comece com passos pequenos: troque um lanche industrial por fruta; hidrate-se; busque orientação básica."
-        },
-        sono: {
-          bom: "Ótimo — mantenha rotina: horário regular para dormir e evitar telas 30min antes.",
-          regular: "Procure ajustar horário de sono, evite cafeína à noite e pratique relaxamento antes de deitar.",
-          ruim: "Priorize sono: rotina noturna, evitar telas, considerar técnicas de respiração e consultar especialista se persistir."
-        },
-        estresse: {
-          baixo: "Mantenha práticas de cuidado: atividades prazerosas e sono adequado.",
-          medio: "Inclua pausas curtas no dia: respirações guiadas (5-10min) e pequenas caminhadas.",
-          alto: "Reserve 10 min/dia para meditação guiada, procure apoio profissional se necessário e pratique alongamentos relaxantes."
-        },
-        objetivo: {
-          emagrecer: "Meta: déficit calórico leve + atividade regular. Passe por avaliações e metas semanais.",
-          manter: "Meta: manter hábitos com rotina de exercícios e alimentação equilibrada.",
-          bemestar: "Meta: priorizar saúde mental com técnicas de relaxamento, sono e exercícios leves."
-        }
-      };
+      // Monta resumo
+      const introText = `Plano para ${perfil === 'empresa' ? 'programa empresarial' : 'usuário'} — baseado nas suas respostas.`;
+      document.getElementById('planIntro').innerText = introText;
 
-      // Monta o HTML do plano
-      const planHTML = `
+      // Prepara cards resumidos
+      const planContainer = document.getElementById('planCard');
+      planContainer.innerHTML = `
         <div class="plan-card">
-          <h4>Atividade Física</h4>
-          <p class="small">${planos.atividade[atividade]}</p>
+          <h4>Atividade</h4>
+          <p class="small">${workouts[atividade].treino}</p>
         </div>
         <div class="plan-card">
           <h4>Alimentação</h4>
-          <p class="small">${planos.alimentacao[alimentacao]}</p>
+          <p class="small">Plano alimentar recomendado: ${alimentacao === 'equilibrada' ? 'Manter' : alimentacao === 'melhorar' ? 'Melhorar' : 'Iniciar mudanças'}</p>
+        </div>
+        <div class="plan-card">
+          <h4>Saúde mental</h4>
+          <p class="small">${mentalExercises[estresse][0]}</p>
         </div>
         <div class="plan-card">
           <h4>Sono</h4>
-          <p class="small">${planos.sono[sono]}</p>
-        </div>
-        <div class="plan-card">
-          <h4>Saúde Mental</h4>
-          <p class="small">${planos.estresse[estresse]}</p>
-        </div>
-        <div class="plan-card">
-          <h4>Objetivo</h4>
-          <p class="small">${planos.objetivo[objetivo]}</p>
+          <p class="small">${sleepAdvice[sono]}</p>
         </div>
       `;
 
-      const planContainer = document.getElementById('planContent');
-      planContainer.innerHTML = planHTML;
+      // Monta conteúdo completo (fullPlan)
+      buildFullPlan(sono, atividade, alimentacao, estresse, objetivo, perfil);
 
       // mostra a seção plano
       const planoBlock = document.getElementById('plano');
@@ -251,7 +366,112 @@
       }, 150);
     }
 
+    function buildFullPlan(sono, atividade, alimentacao, estresse, objetivo, perfil){
+      // Dieta semanal segundo categoria
+      let diet = dietTemplates.básico;
+      if(alimentacao === 'melhorar') diet = dietTemplates.melhorar;
+      if(alimentacao === 'muito_ruim') diet = dietTemplates.ruim;
+
+      // Preenche dieta semanal
+      const dietWeek = document.getElementById('dietWeek');
+      dietWeek.innerHTML = `
+        <div class="plan-card"><strong>Segunda</strong><p class="small">${diet.seg}</p></div>
+        <div class="plan-card"><strong>Terça</strong><p class="small">${diet.ter}</p></div>
+        <div class="plan-card"><strong>Quarta</strong><p class="small">${diet.qua}</p></div>
+        <div class="plan-card"><strong>Quinta</strong><p class="small">${diet.qui}</p></div>
+        <div class="plan-card"><strong>Sexta</strong><p class="small">${diet.sex}</p></div>
+        <div class="plan-card"><strong>Sábado</strong><p class="small">${diet.sab}</p></div>
+        <div class="plan-card"><strong>Domingo</strong><p class="small">${diet.dom}</p></div>
+      `;
+
+      // Treino
+      const trainingPlan = document.getElementById('trainingPlan');
+      trainingPlan.innerHTML = `
+        <div class="plan-card">
+          <h4>${workouts[atividade].nivel}</h4>
+          <p class="small">${workouts[atividade].treino}</p>
+          <ul class="small">
+            ${workouts[atividade].exemplo.map(i=>`<li>${i}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      // Saúde mental
+      const mentalPlan = document.getElementById('mentalPlan');
+      mentalPlan.innerHTML = `
+        <div class="plan-card">
+          <p class="small">${mentalExercises[estresse].join('</p><p class="small">')}</p>
+        </div>
+      `;
+
+      // Sono
+      const sleepPlan = document.getElementById('sleepPlan');
+      sleepPlan.innerHTML = `
+        <div class="plan-card">
+          <p class="small">${sleepAdvice[sono]}</p>
+          <ul class="small">
+            <li>Evite telas 30 min antes de deitar</li>
+            <li>Mantenha horário regular</li>
+            <li>Ambiente silencioso e escuro</li>
+          </ul>
+        </div>
+      `;
+
+      // Metas semanais e checklist
+      const weeklyGoals = document.getElementById('weeklyGoals');
+      weeklyGoals.innerHTML = `
+        <li class="small">Completar 3 sessões de exercícios</li>
+        <li class="small">Consumir 3 porções de vegetais por dia</li>
+        <li class="small">Praticar 10 min de meditação 4x na semana</li>
+        <li class="small">Melhorar a qualidade do sono</li>
+      `;
+
+      const dailyChecklist = document.getElementById('dailyChecklist');
+      dailyChecklist.innerHTML = `
+        <label class="check-item"><input type="checkbox"> Beber 2L de água</label>
+        <label class="check-item"><input type="checkbox"> 20 min de atividade física</label>
+        <label class="check-item"><input type="checkbox"> Refeições equilibradas</label>
+        <label class="check-item"><input type="checkbox"> 10 min de meditação/respiração</label>
+        <label class="check-item"><input type="checkbox"> Dormir no horário planejado</label>
+      `;
+
+      // Se perfil empresa, ajustar texto e recomendações
+      const fullPlanBlock = document.getElementById('fullPlan');
+      if(perfil === 'empresa'){
+        // adiciona nota sobre programa empresarial
+        fullPlanBlock.querySelector('p.small').innerText = 'Programa empresarial recomendado: adaptar plano para equipe, com workshops, desafios em grupo e relatórios mensais.';
+      } else {
+        fullPlanBlock.querySelector('p.small').innerText = 'Plano detalhado para uso pessoal — adapte conforme suas preferências e acompanhe a evolução.';
+      }
+    }
+
+    // View / copy / print handlers
     document.getElementById('generateBtn').addEventListener('click', generatePlan);
+    document.getElementById('viewFull').addEventListener('click', ()=>{
+      const full = document.getElementById('fullPlan');
+      full.classList.toggle('hidden');
+      if(!full.classList.contains('hidden')){
+        full.scrollIntoView({behavior:'smooth'});
+        document.getElementById('viewFull').innerText = 'Fechar Plano';
+      } else {
+        document.getElementById('viewFull').innerText = 'Ver Plano Completo';
+      }
+    });
+
+    document.getElementById('copyPlan').addEventListener('click', ()=>{
+      // copia um resumo do plano para a área de transferência
+      const planSummary = document.getElementById('planIntro').innerText + "\\n\\n";
+      const cards = Array.from(document.querySelectorAll('#planCard .plan-card'));
+      const textParts = cards.map(c => c.querySelector('h4').innerText + ': ' + c.querySelector('p').innerText);
+      const fullText = planSummary + textParts.join('\\n') + '\\n\\n' + 'Ver plano completo no link.';
+      navigator.clipboard.writeText(fullText).then(()=> {
+        alert('Resumo do plano copiado. Agora você pode colar no WhatsApp ou enviar por mensagem.');
+      }).catch(()=> alert('Não foi possível copiar automaticamente — selecione o texto e copie manualmente.'));
+    });
+
+    document.getElementById('printPlan').addEventListener('click', ()=> {
+      window.print();
+    });
   </script>
 </body>
 </html>
