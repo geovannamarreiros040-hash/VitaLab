@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitaLab - Plataforma de Bem-Estar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f4fdf8;
+      color: #2f6b4f;
+      overflow-x: hidden;
+    }
+
+    .fade {
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      background: #76c89d;
+      padding: 15px 28px;
+      border-radius: 30px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #5cab82;
+      transform: scale(1.05);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 40px;
+      background: #ffffffcc;
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 { margin: 0; font-size: 26px; color: #2f6b4f; }
+
+    .hero {
+      padding: 150px 40px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .hero-text h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 450px;
+    }
+
+    .hero img {
+      width: 420px;
+      border-radius: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    section {
+      padding: 80px 40px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #2f6b4f;
+      color: #fff;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="fade">
+  <h1>VitaLab</h1>
+  <nav>
+    <a class="btn" href="#inicio">Início</a>
+    <a class="btn" href="#sobre">Sobre</a>
+    <a class="btn" href="#diagnostico">Diagnóstico</a>
+  </nav>
+</header>
+
+<section class="hero fade" id="inicio">
+  <div class="hero-text">
+    <h2>Bem-estar com inovação e equilíbrio</h2>
+    <p>A VitaLab cuida de você unindo tecnologia, saúde mental, exercícios e nutrição em um só lugar.</p>
+    <a href="#diagnostico" class="btn">Começar agora</a>
+  </div>
+  <img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness Image" />
+</section>
+
+<section id="sobre" class="fade">
+  <h2>Quem Somos</h2>
+  <p>A VitaLab é uma plataforma digital que cria planos personalizados para melhorar a saúde de pessoas e empresas.</p>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>Missão</h3>
+      <p>Transformar o bem-estar através da inovação e autocuidado.</p>
+    </div>
+    <div class="card">
+      <h3>Visão</h3>
+      <p>Ser referência em saúde preventiva e qualidade de vida.</p>
+    </div>
+    <div class="card">
+      <h3>Valores</h3>
+      <p>Inovação • Equilíbrio • Inclusão • Saúde Integral</p>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico" class="fade">
+  <h2>Diagnóstico Inicial</h2>
+  <p>Responda algumas perguntas e receba seu plano personalizado.</p>
+
+  <div class="card-container">
+    <div class="card"><strong>Como está seu sono?</strong></div>
+    <div class="card"><strong>Você pratica exercícios?</strong></div>
+    <div class="card"><strong>Como descreve sua alimentação?</strong></div>
+    <div class="card"><strong>Qual seu nível de estresse?</strong></div>
+  </div>
+
+  <br />
+  <a class="btn" href="#">Gerar Plano</a>
+</section>
+
+<footer>
+  VitaLab © 2025 — Saúde, bem-estar e inovação.
+</footer>
+
+</body>
+</html
