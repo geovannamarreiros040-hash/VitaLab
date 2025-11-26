@@ -1,174 +1,257 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VitaLab - Plataforma de Bem-Estar</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #f4fdf8;
-      color: #2f6b4f;
-      overflow-x: hidden;
+    :root{
+      --green:#76c89d;
+      --green-dark:#2f6b4f;
+      --blue:#6ba8d6;
+      --off:#f7f9f8;
+      --card-bg:#ffffff;
     }
-
-    .fade {
-      animation: fadeIn 1.2s ease;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Montserrat", "Open Sans", sans-serif;
+      background:var(--off);
+      color:var(--green-dark);
+      -webkit-font-smoothing:antialiased;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    header{
+      position:fixed; top:0; left:0; right:0;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:18px 28px; background:#ffffffcc; backdrop-filter: blur(6px);
+      z-index:100;
     }
-
-    .btn {
-      background: #76c89d;
-      padding: 15px 28px;
-      border-radius: 30px;
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #5cab82;
-      transform: scale(1.05);
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 40px;
-      background: #ffffffcc;
-      backdrop-filter: blur(10px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 999;
-    }
-    header h1 { margin: 0; font-size: 26px; color: #2f6b4f; }
-
-    .hero {
-      padding: 150px 40px 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .hero-text h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-      line-height: 1.2;
-    }
-    .hero-text p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 450px;
-    }
-
-    .hero img {
-      width: 420px;
-      border-radius: 20px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0px); }
-    }
-
-    section {
-      padding: 80px 40px;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: #2f6b4f;
-      color: #fff;
-      margin-top: 40px;
+    header h1{ margin:0; font-size:22px; color:var(--green-dark) }
+    nav .btn{ margin-left:10px; text-decoration:none; padding:8px 14px; border-radius:20px; background:var(--green); color:#fff; font-weight:600 }
+    main{ padding-top:100px; }
+    .hero{ display:flex; gap:24px; align-items:center; justify-content:space-between; padding:48px 28px; }
+    .hero-text h2{ font-size:36px; margin:0 0 12px 0; line-height:1.1 }
+    .hero-text p{ margin:0 0 18px 0; color:#2e5550 }
+    .btn-primary{ background:var(--green); color:#fff; padding:12px 20px; border-radius:28px; text-decoration:none; display:inline-block; }
+    .card-container{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; padding:18px 28px; }
+    .card{ background:var(--card-bg); border-radius:14px; padding:18px; box-shadow:0 8px 18px rgba(0,0,0,0.06) }
+    section{ padding:28px; }
+    h2.section-title{ margin:0 0 14px 0; color:var(--green-dark) }
+    /* Form styles */
+    .diagnostic-form { display:grid; gap:12px; grid-template-columns:1fr; max-width:880px; }
+    .form-row { display:flex; gap:12px; align-items:center; }
+    label{ min-width:160px; font-weight:600; color:#2f6b4f }
+    select{ flex:1; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6; }
+    .center { display:flex; justify-content:center; margin-top:16px }
+    /* Plano personalizado */
+    #plano { background:linear-gradient(180deg,#ffffff,#f8fffb); border-radius:12px; padding:20px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.04) }
+    .plan-section { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .plan-card { background:#fff; border-radius:10px; padding:14px; box-shadow:0 6px 14px rgba(0,0,0,0.04) }
+    .small { font-size:13px; color:#547f77 }
+    footer{ text-align:center; padding:28px; background:var(--green-dark); color:#fff; margin-top:24px }
+    /* smooth scroll */
+    html { scroll-behavior: smooth; }
+    @media(max-width:900px){
+      .hero{ flex-direction:column; text-align:left }
+      .hero img{ width:90%; max-width:320px }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>VitaLab</h1>
+    <nav>
+      <a class="btn" href="#inicio">Início</a>
+      <a class="btn" href="#sobre">Sobre</a>
+      <a class="btn" href="#diagnostico">Diagnóstico</a>
+    </nav>
+  </header>
 
-<header class="fade">
-  <h1>VitaLab</h1>
-  <nav>
-    <a class="btn" href="#inicio">Início</a>
-    <a class="btn" href="#sobre">Sobre</a>
-    <a class="btn" href="#diagnostico">Diagnóstico</a>
-  </nav>
-</header>
+  <main>
+    <!-- HERO / INÍCIO -->
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <h2>Bem-estar com inovação e equilíbrio</h2>
+        <p>A VitaLab une tecnologia, saúde mental, exercícios e nutrição em um só lugar — plano personalizado para você e programa para empresas.</p>
+        <a class="btn-primary" href="#diagnostico">Começar agora</a>
+      </div>
+      <div><img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness" style="width:320px;border-radius:12px"></div>
+    </section>
 
-<section class="hero fade" id="inicio">
-  <div class="hero-text">
-    <h2>Bem-estar com inovação e equilíbrio</h2>
-    <p>A VitaLab cuida de você unindo tecnologia, saúde mental, exercícios e nutrição em um só lugar.</p>
-    <a href="#diagnostico" class="btn">Começar agora</a>
-  </div>
-  <img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness Image" />
-</section>
+    <!-- SOBRE -->
+    <section id="sobre">
+      <h2 class="section-title">Quem somos</h2>
+      <p class="small">A VitaLab é uma plataforma digital que cria planos personalizados para melhorar a saúde de pessoas e empresas, com foco em hábitos sustentáveis.</p>
+      <div class="card-container" style="margin-top:14px">
+        <div class="card">
+          <h3>Missão</h3>
+          <p class="small">Transformar o bem-estar através da inovação e autocuidado.</p>
+        </div>
+        <div class="card">
+          <h3>Visão</h3>
+          <p class="small">Ser referência em saúde preventiva e qualidade de vida.</p>
+        </div>
+        <div class="card">
+          <h3>Valores</h3>
+          <p class="small">Inovação • Equilíbrio • Inclusão • Saúde Integral</p>
+        </div>
+      </div>
+    </section>
 
-<section id="sobre" class="fade">
-  <h2>Quem Somos</h2>
-  <p>A VitaLab é uma plataforma digital que cria planos personalizados para melhorar a saúde de pessoas e empresas.</p>
+    <!-- DIAGNÓSTICO -->
+    <section id="diagnostico">
+      <h2 class="section-title">Diagnóstico Inicial</h2>
+      <p class="small">Responda rapidamente para receber um plano personalizado.</p>
 
-  <div class="card-container">
-    <div class="card">
-      <h3>Missão</h3>
-      <p>Transformar o bem-estar através da inovação e autocuidado.</p>
-    </div>
-    <div class="card">
-      <h3>Visão</h3>
-      <p>Ser referência em saúde preventiva e qualidade de vida.</p>
-    </div>
-    <div class="card">
-      <h3>Valores</h3>
-      <p>Inovação • Equilíbrio • Inclusão • Saúde Integral</p>
-    </div>
-  </div>
-</section>
+      <form id="diagnosticForm" class="diagnostic-form" onsubmit="return false;">
+        <div class="form-row">
+          <label for="sono">Como está seu sono?</label>
+          <select id="sono" required>
+            <option value="bom">Bom (7-9h)</option>
+            <option value="regular">Regular (5-6h)</option>
+            <option value="ruim">Ruim (menos de 5h)</option>
+          </select>
+        </div>
 
-<section id="diagnostico" class="fade">
-  <h2>Diagnóstico Inicial</h2>
-  <p>Responda algumas perguntas e receba seu plano personalizado.</p>
+        <div class="form-row">
+          <label for="atividade">Você pratica atividade física?</label>
+          <select id="atividade" required>
+            <option value="regular">Regular (3x+ / semana)</option>
+            <option value="ocasional">Ocasional (1-2x / semana)</option>
+            <option value="nunca">Não pratico</option>
+          </select>
+        </div>
 
-  <div class="card-container">
-    <div class="card"><strong>Como está seu sono?</strong></div>
-    <div class="card"><strong>Você pratica exercícios?</strong></div>
-    <div class="card"><strong>Como descreve sua alimentação?</strong></div>
-    <div class="card"><strong>Qual seu nível de estresse?</strong></div>
-  </div>
+        <div class="form-row">
+          <label for="alimentacao">Como descreve sua alimentação?</label>
+          <select id="alimentacao" required>
+            <option value="equilibrada">Equilibrada</option>
+            <option value="melhorar">Precisa melhorar</option>
+            <option value="muito_ruim">Muito ruim</option>
+          </select>
+        </div>
 
-  <br />
-  <a class="btn" href="#">Gerar Plano</a>
-</section>
+        <div class="form-row">
+          <label for="estresse">Nível de estresse atual</label>
+          <select id="estresse" required>
+            <option value="baixo">Baixo</option>
+            <option value="medio">Médio</option>
+            <option value="alto">Alto</option>
+          </select>
+        </div>
 
-<footer>
-  VitaLab © 2025 — Saúde, bem-estar e inovação.
-</footer>
+        <div class="form-row">
+          <label for="objetivo">Seu objetivo principal</label>
+          <select id="objetivo" required>
+            <option value="emagrecer">Emagrecer</option>
+            <option value="manter">Manter saúde/rotina</option>
+            <option value="bemestar">Melhorar bem-estar mental</option>
+          </select>
+        </div>
 
+        <div class="center">
+          <button id="generateBtn" class="btn-primary" type="button">Gerar Plano</button>
+        </div>
+      </form>
+
+      <!-- Plano personalizado (inicialmente vazio) -->
+      <div id="plano" style="display:none; margin-top:18px;">
+        <h3>Seu Plano VitaLab</h3>
+        <p class="small">Plano montado com base nas suas respostas — ajustes e acompanhamento na plataforma.</p>
+        <div id="planContent" class="plan-section" style="margin-top:12px;"></div>
+      </div>
+    </section>
+
+    <section id="extras">
+      <h2 class="section-title">Benefícios para empresas</h2>
+      <div class="card-container">
+        <div class="card"><strong>Redução de afastamentos</strong><p class="small">Programas para colaboradores melhoram saúde e produtividade.</p></div>
+        <div class="card"><strong>Relatórios</strong><p class="small">Painel de dados com evolução da equipe (engajamento, metas).</p></div>
+        <div class="card"><strong>Workshops</strong><p class="small">Treinamentos para líderes e equipes sobre hábitos saudáveis.</p></div>
+      </div>
+    </section>
+
+    <footer>
+      VitaLab © 2025 — Saúde, bem-estar e inovação.
+    </footer>
+  </main>
+
+  <script>
+    // Função para gerar plano com base nas respostas
+    function generatePlan(){
+      const sono = document.getElementById('sono').value;
+      const atividade = document.getElementById('atividade').value;
+      const alimentacao = document.getElementById('alimentacao').value;
+      const estresse = document.getElementById('estresse').value;
+      const objetivo = document.getElementById('objetivo').value;
+
+      // Monta recomendações simples (você pode editar)
+      const planos = {
+        atividade: {
+          regular: "Mantenha treinos regulares: 3x por semana (30-45min). Combine cardio e fortalecimento.",
+          ocasional: "Comece com 2x por semana: caminhadas de 30min, alongamento e rotina curta de força.",
+          nunca: "Inicie com pequenas caminhadas diárias: 15-20 minutos e exercícios de mobilidade."
+        },
+        alimentacao: {
+          equilibrada: "Continue com uma alimentação balanceada: distribua proteínas, carboidratos complexos e vegetais.",
+          melhorar: "Inclua mais frutas, verduras e reduza ultraprocessados. Planeje 3 refeições principais com lanches saudáveis.",
+          muito_ruim: "Comece com passos pequenos: troque um lanche industrial por fruta; hidrate-se; busque orientação básica."
+        },
+        sono: {
+          bom: "Ótimo — mantenha rotina: horário regular para dormir e evitar telas 30min antes.",
+          regular: "Procure ajustar horário de sono, evite cafeína à noite e pratique relaxamento antes de deitar.",
+          ruim: "Priorize sono: rotina noturna, evitar telas, considerar técnicas de respiração e consultar especialista se persistir."
+        },
+        estresse: {
+          baixo: "Mantenha práticas de cuidado: atividades prazerosas e sono adequado.",
+          medio: "Inclua pausas curtas no dia: respirações guiadas (5-10min) e pequenas caminhadas.",
+          alto: "Reserve 10 min/dia para meditação guiada, procure apoio profissional se necessário e pratique alongamentos relaxantes."
+        },
+        objetivo: {
+          emagrecer: "Meta: déficit calórico leve + atividade regular. Passe por avaliações e metas semanais.",
+          manter: "Meta: manter hábitos com rotina de exercícios e alimentação equilibrada.",
+          bemestar: "Meta: priorizar saúde mental com técnicas de relaxamento, sono e exercícios leves."
+        }
+      };
+
+      // Monta o HTML do plano
+      const planHTML = `
+        <div class="plan-card">
+          <h4>Atividade Física</h4>
+          <p class="small">${planos.atividade[atividade]}</p>
+        </div>
+        <div class="plan-card">
+          <h4>Alimentação</h4>
+          <p class="small">${planos.alimentacao[alimentacao]}</p>
+        </div>
+        <div class="plan-card">
+          <h4>Sono</h4>
+          <p class="small">${planos.sono[sono]}</p>
+        </div>
+        <div class="plan-card">
+          <h4>Saúde Mental</h4>
+          <p class="small">${planos.estresse[estresse]}</p>
+        </div>
+        <div class="plan-card">
+          <h4>Objetivo</h4>
+          <p class="small">${planos.objetivo[objetivo]}</p>
+        </div>
+      `;
+
+      const planContainer = document.getElementById('planContent');
+      planContainer.innerHTML = planHTML;
+
+      // mostra a seção plano
+      const planoBlock = document.getElementById('plano');
+      planoBlock.style.display = 'block';
+
+      // rola para a seção do plano
+      setTimeout(()=> {
+        document.getElementById('plano').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', generatePlan);
+  </script>
 </body>
-</html
+</html>
