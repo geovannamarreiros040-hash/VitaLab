@@ -14,164 +14,172 @@
       --text:#2f6b4f;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Montserrat", "Open Sans", sans-serif;
-      background:var(--off);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      line-height:1.4;
-    }
-    header{
-      position:fixed; top:0; left:0; right:0;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:14px 20px; background:#ffffffcc; backdrop-filter: blur(6px);
-      z-index:100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
+    body{ margin:0; font-family: "Montserrat","Open Sans", sans-serif; background:var(--off); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.4; }
+    header{ position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:12px 18px; background:#ffffffcc; backdrop-filter: blur(6px); z-index:100; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
     header h1{ margin:0; font-size:20px; color:var(--green-dark) }
     nav .btn{ margin-left:8px; text-decoration:none; padding:8px 12px; border-radius:20px; background:var(--green); color:#fff; font-weight:600 }
-    main{ padding-top:84px; max-width:1100px; margin:0 auto }
-    .hero{ display:flex; gap:20px; align-items:center; justify-content:space-between; padding:34px 16px; }
-    .hero-text h2{ font-size:30px; margin:0 0 10px 0; line-height:1.05 }
+    main{ padding-top:84px; max-width:1100px; margin:0 auto; padding-bottom:40px; }
+    .hero{ display:flex; gap:20px; align-items:center; justify-content:space-between; padding:24px 16px; }
+    .hero-text h2{ font-size:28px; margin:0 0 10px 0; line-height:1.05 }
     .hero-text p{ margin:0 0 16px 0; color:#2e5550 }
-    .btn-primary{ background:var(--green); color:#fff; padding:10px 18px; border-radius:28px; text-decoration:none; display:inline-block; font-weight:700; }
+    .btn-primary{ background:var(--green); color:#fff; padding:10px 18px; border-radius:28px; text-decoration:none; display:inline-block; font-weight:700; border:none; cursor:pointer; }
+    .btn-ghost{ background:transparent; border:1px solid #ddd; padding:8px 12px; border-radius:12px; cursor:pointer; }
     .card-container{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; padding:10px 16px; }
     .card{ background:var(--card-bg); border-radius:12px; padding:14px; box-shadow:0 8px 18px rgba(0,0,0,0.06) }
     section{ padding:18px; }
     h2.section-title{ margin:6px 0 10px 0; color:var(--green-dark) }
     .small { font-size:14px; color:#556f6a; }
     /* Form styles */
-    .diagnostic-form { display:grid; gap:12px; grid-template-columns:1fr; max-width:960px; margin-top:8px; }
-    .form-row { display:flex; gap:12px; align-items:center; }
-    label{ min-width:160px; font-weight:700; color:var(--green-dark) }
-    select{ flex:1; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6; background:#fff; }
-    .center { display:flex; justify-content:center; margin-top:12px }
+    .form-grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .field { display:flex; flex-direction:column; gap:6px; }
+    label{ font-weight:700; color:var(--green-dark) }
+    input[type="text"], input[type="email"], input[type="number"], select, textarea {
+      padding:10px; border-radius:8px; border:1px solid #e6e6e6; background:#fff;
+    }
+    .center { display:flex; justify-content:center; margin-top:12px; gap:8px; flex-wrap:wrap; }
     /* Plano personalizado */
     #plano { background:linear-gradient(180deg,#ffffff,#f8fffb); border-radius:12px; padding:18px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.04) }
     .plan-section { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
     .plan-card { background:#fff; border-radius:10px; padding:12px; box-shadow:0 6px 14px rgba(0,0,0,0.04) }
     .plan-summary { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between }
     .hidden { display:none; }
-    .btn-ghost { border:1px solid #ddd; padding:8px 14px; border-radius:10px; background:transparent; cursor:pointer; }
-    .btn-copy { background:var(--blue); color:#fff; padding:8px 12px; border-radius:10px; border:none; cursor:pointer; }
     .company-box { background:#fff; padding:12px; border-radius:10px; box-shadow:0 6px 12px rgba(0,0,0,0.04) }
     footer{ text-align:center; padding:20px; background:var(--green-dark); color:#fff; margin-top:20px; border-radius:8px }
     .daily-checklist { display:flex; gap:8px; flex-direction:column; }
     .check-item { display:flex; align-items:center; gap:8px; background:#fff; padding:10px; border-radius:8px; }
     .full-plan { margin-top:12px; }
-    @media(max-width:900px){
-      .hero{ flex-direction:column; text-align:left }
-      .hero img{ width:90%; max-width:320px }
-    }
+    .profile-bar { display:flex; gap:12px; align-items:center; justify-content:flex-end; }
+    .small-muted { color:#7b8f8a; font-size:13px; }
+    @media(max-width:900px){ .hero{ flex-direction:column; text-align:left } .hero img{ width:90%; max-width:320px } }
   </style>
 </head>
 <body>
   <header>
     <h1>VitaLab</h1>
-    <nav>
-      <a class="btn" href="#inicio">Início</a>
-      <a class="btn" href="#sobre">Sobre</a>
-      <a class="btn" href="#diagnostico">Diagnóstico</a>
-    </nav>
+    <div class="profile-bar">
+      <span id="greeting" class="small-muted">Bem-vinda</span>
+      <button id="editProfileBtn" class="btn-ghost hidden">Editar perfil</button>
+      <button id="clearProfileBtn" class="btn-ghost hidden">Sair</button>
+    </div>
   </header>
 
   <main>
-    <!-- HERO / INÍCIO -->
-    <section id="inicio" class="hero">
+    <!-- HERO -->
+    <section class="hero" id="inicio">
       <div class="hero-text">
         <h2>Bem-estar com inovação e equilíbrio</h2>
-        <p class="small">Plano completo, personalizado e pronto para você — saúde física, mental e nutrição em um só lugar.</p>
-        <a class="btn-primary" href="#diagnostico">Começar agora</a>
+        <p class="small">Cadastre-se (opcional) e receba um plano completo para você ou para sua empresa.</p>
+        <div>
+          <button class="btn-primary" onclick="document.getElementById('cadastro').scrollIntoView({behavior:'smooth'})">Começar</button>
+        </div>
       </div>
-      <div style="width:280px"><img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness" style="width:100%;border-radius:12px"></div>
+      <div style="width:260px"><img src="https://cdn-icons-png.flaticon.com/512/9222/9222872.png" alt="Wellness" style="width:100%;border-radius:12px"></div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre">
-      <h2 class="section-title">Quem somos</h2>
-      <p class="small">A VitaLab é uma plataforma digital que cria planos completos para pessoas e empresas, com foco em hábitos sustentáveis e prevenção.</p>
-      <div class="card-container" style="margin-top:12px">
-        <div class="card">
-          <h3>Missão</h3>
-          <p class="small">Transformar o bem-estar através da inovação e autocuidado.</p>
+    <!-- CADASTRO (TELA ÚNICA: usuário / empresa) -->
+    <section id="cadastro">
+      <h2 class="section-title">Cadastro (opcional)</h2>
+      <p class="small">Informe seus dados ou clique em "Pular cadastro" para continuar.</p>
+
+      <div class="card" style="margin-top:10px;">
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <label style="margin-right:6px; font-weight:700">Eu sou:</label>
+          <label><input type="radio" name="tipo" value="usuario" checked> Usuário</label>
+          <label><input type="radio" name="tipo" value="empresa"> Empresa</label>
         </div>
-        <div class="card">
-          <h3>Visão</h3>
-          <p class="small">Ser referência em saúde preventiva e qualidade de vida.</p>
-        </div>
-        <div class="card">
-          <h3>Valores</h3>
-          <p class="small">Inovação • Equilíbrio • Inclusão • Saúde Integral</p>
-        </div>
+
+        <!-- Formulário dinâmico -->
+        <form id="signupForm" onsubmit="return false;" style="margin-top:12px;">
+          <div id="userFields" class="form-grid">
+            <div class="field"><label for="nome">Nome completo</label><input id="nome" type="text" placeholder="Seu nome"></div>
+            <div class="field"><label for="idade">Idade</label><input id="idade" type="number" min="10" max="120" placeholder="Ex: 28"></div>
+            <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="seu@email.com"></div>
+            <div class="field"><label for="telefone">Telefone (opcional)</label><input id="telefone" type="text" placeholder="(xx) xxxxx-xxxx"></div>
+          </div>
+
+          <div id="companyFields" class="form-grid hidden" style="margin-top:8px;">
+            <div class="field"><label for="companyName">Nome da empresa</label><input id="companyName" type="text" placeholder="Empresa LTDA"></div>
+            <div class="field"><label for="companySize">Nº de colaboradores</label><input id="companySize" type="number" min="1" placeholder="Ex: 50"></div>
+            <div class="field"><label for="industry">Área de atuação</label><input id="industry" type="text" placeholder="Ex: Saúde, Educação"></div>
+            <div class="field"><label for="manager">Nome do responsável</label><input id="manager" type="text" placeholder="Nome do gestor"></div>
+            <div class="field"><label for="companyEmail">Email corporativo</label><input id="companyEmail" type="email" placeholder="contato@empresa.com"></div>
+            <div class="field"><label for="companyPhone">Telefone (opcional)</label><input id="companyPhone" type="text" placeholder="(xx) xxxx-xxxx"></div>
+          </div>
+
+          <div class="center" style="margin-top:12px;">
+            <button id="saveProfileBtn" class="btn-primary" type="button">Salvar e Continuar</button>
+            <button id="skipProfileBtn" class="btn-ghost" type="button">Pular cadastro</button>
+          </div>
+        </form>
       </div>
     </section>
 
     <!-- DIAGNÓSTICO -->
-    <section id="diagnostico">
+    <section id="diagnostico" style="margin-top:12px;">
       <h2 class="section-title">Diagnóstico Inicial</h2>
-      <p class="small">Responda rapidamente para receber seu plano personalizado — para você ou para sua empresa.</p>
+      <p class="small">Responda para receber um plano personalizado (usuário ou empresa).</p>
 
-      <form id="diagnosticForm" class="diagnostic-form" onsubmit="return false;">
-        <div class="form-row">
+      <form id="diagnosticForm" class="form-grid" onsubmit="return false;" style="margin-top:8px;">
+        <!-- Usuário questions (same controls used for empresa with some changes) -->
+        <div class="field">
           <label for="sono">Como está seu sono?</label>
-          <select id="sono" required>
+          <select id="sono">
             <option value="bom">Bom (7-9h)</option>
             <option value="regular">Regular (5-6h)</option>
-            <option value="ruim">Ruim (menos de 5h)</option>
+            <option value="ruim">Ruim (&lt;5h)</option>
           </select>
         </div>
 
-        <div class="form-row">
+        <div class="field">
           <label for="atividade">Você pratica atividade física?</label>
-          <select id="atividade" required>
-            <option value="regular">Regular (3x+ / semana)</option>
-            <option value="ocasional">Ocasional (1-2x / semana)</option>
+          <select id="atividade">
+            <option value="regular">Regular (3x+/semana)</option>
+            <option value="ocasional">Ocasional (1-2x/semana)</option>
             <option value="nunca">Não pratico</option>
           </select>
         </div>
 
-        <div class="form-row">
+        <div class="field">
           <label for="alimentacao">Como descreve sua alimentação?</label>
-          <select id="alimentacao" required>
+          <select id="alimentacao">
             <option value="equilibrada">Equilibrada</option>
             <option value="melhorar">Precisa melhorar</option>
             <option value="muito_ruim">Muito ruim</option>
           </select>
         </div>
 
-        <div class="form-row">
+        <div class="field">
           <label for="estresse">Nível de estresse atual</label>
-          <select id="estresse" required>
+          <select id="estresse">
             <option value="baixo">Baixo</option>
             <option value="medio">Médio</option>
             <option value="alto">Alto</option>
           </select>
         </div>
 
-        <div class="form-row">
+        <div class="field">
           <label for="objetivo">Seu objetivo principal</label>
-          <select id="objetivo" required>
+          <select id="objetivo">
             <option value="emagrecer">Emagrecer</option>
             <option value="manter">Manter saúde/rotina</option>
             <option value="bemestar">Melhorar bem-estar mental</option>
           </select>
         </div>
 
-        <div class="form-row">
-          <label for="perfil">Você está preenchendo como:</label>
-          <select id="perfil" required>
+        <div class="field">
+          <label for="perfilSelect">Responder como</label>
+          <select id="perfilSelect">
             <option value="usuario">Usuário</option>
-            <option value="empresa">Empresa (programa para colaboradores)</option>
+            <option value="empresa">Empresa</option>
           </select>
         </div>
 
-        <div class="center">
+        <div style="grid-column:1 / -1; display:flex; justify-content:center; margin-top:8px;">
           <button id="generateBtn" class="btn-primary" type="button">Gerar Plano</button>
         </div>
       </form>
 
-      <!-- Plano personalizado (inicialmente oculto) -->
+      <!-- Plano personalizado -->
       <div id="plano" style="display:none; margin-top:18px;">
         <div class="plan-summary">
           <div>
@@ -180,17 +188,16 @@
           </div>
           <div style="display:flex; gap:10px; align-items:center;">
             <button id="viewFull" class="btn-ghost">Ver Plano Completo</button>
-            <button id="copyPlan" class="btn-copy">Copiar Plano</button>
+            <button id="copyPlan" class="btn-ghost">Copiar Plano</button>
             <button id="printPlan" class="btn-ghost">Imprimir</button>
           </div>
         </div>
 
         <div id="planCard" class="plan-section" style="margin-top:12px;"></div>
 
-        <!-- Área detalhada do plano (oculta até clicar em Ver Plano Completo) -->
         <div id="fullPlan" class="full-plan hidden">
           <h3>Plano Completo</h3>
-          <p class="small">Aqui está seu plano detalhado — dieta semanal, treinos, rotina de sono, práticas mentais e checklist diário.</p>
+          <p class="small" id="fullPlanIntro">Detalhes do plano.</p>
 
           <div style="margin-top:12px;">
             <h4>Dieta Semanal</h4>
@@ -224,155 +231,239 @@
             </div>
           </div>
 
+          <!-- Empresa: Cronograma / Workshops / Relatórios -->
+          <div id="companyPlanSection" style="margin-top:18px;"></div>
+
         </div>
 
       </div>
     </section>
 
-    <section id="extras">
-      <h2 class="section-title">Programa para Empresas</h2>
+    <footer style="margin-top:20px;">
       <div class="card-container">
-        <div class="company-box">
-          <h4>Programa Corporativo VitaLab</h4>
-          <p class="small">Plano voltado para empresas: implementação gradual, workshops mensais, relatórios de engajamento e painéis com indicadores de saúde da equipe.</p>
-          <ul class="small">
-            <li>Onboarding com diagnóstico da equipe</li>
-            <li>Programas trimestrais (saúde física, mental e nutrição)</li>
-            <li>Relatórios de evolução para gestores</li>
-          </ul>
-        </div>
         <div class="card">
-          <h4>Benefícios</h4>
-          <p class="small">Redução de afastamentos, aumento da produtividade, clima organizacional melhor.</p>
+          <h4>Programa para Empresas</h4>
+          <p class="small">Plano corporativo VitaLab: diagnóstico da equipe, workshops, desafios e relatórios.</p>
         </div>
         <div class="card">
           <h4>Como contratar</h4>
-          <p class="small">Contato via email e proposta personalizada com preço por colaborador.</p>
+          <p class="small">Contato: <a href="mailto:contato@vitalab.com">contato@vitalab.com</a> — ou clique em "Gerar Plano" e copie o resumo para enviar.</p>
+        </div>
+        <div class="card">
+          <h4>Suporte</h4>
+          <p class="small">Precisa de ajuda? Use o botão "Copiar Plano" ou entre em contato por email.</p>
         </div>
       </div>
-    </section>
-
-    <footer>
-      VitaLab © 2025 — Saúde, bem-estar e inovação.
     </footer>
   </main>
 
   <script>
-    // Dados base para gerar planos
+    /* ---------------------------
+       Dados-base para planos
+       --------------------------- */
     const dietTemplates = {
-      básico: {
+      basico: {
         seg: "Café: aveia com fruta. Almoço: arroz integral, frango grelhado, salada. Lanche: iogurte natural. Jantar: sopa de legumes.",
         ter: "Café: mamão e pão integral. Almoço: peixe, batata doce, legumes. Lanche: castanhas. Jantar: salada com ovo cozido.",
-        qua: "Café: smoothie de banana e aveia. Almoço: quinoa com vegetais e tofu/ frango. Lanche: fruta. Jantar: grelhado + vegetais.",
+        qua: "Café: smoothie de banana e aveia. Almoço: quinoa com vegetais e tofu/frango. Lanche: fruta. Jantar: grelhado + vegetais.",
         qui: "Café: iogurte com granola. Almoço: macarrão integral com molho de tomate e proteína magra. Lanche: cenoura palito. Jantar: omelete com salada.",
         sex: "Café: tapioca com queijo e fruta. Almoço: arroz integral, feijão, peixe, salada. Lanche: barrinha saudável. Jantar: caldo de legumes + proteína magra.",
-        sab: "Café: torradas integrais e frutas. Almoço: grelhado com legumes. Lanche: iogurte. Jantar: refeição leve (salada + proteína).",
+        sab: "Café: torradas integrais e frutas. Almoço: grelhado com legumes. Lanche: iogurte. Jantar: refeição leve.",
         dom: "Café: panqueca integral com frutas. Almoço: refeição família com porção equilibrada. Lanche: fruta. Jantar: leve."
       },
-      melhorar: {
-        seg: "Café: fruta + iogurte. Almoço: proteína + carboidrato + salada. Lanche: fruta. Jantar: refogado leve.",
-        ter: "Café: mingau de aveia. Almoço: grelhado + salada. Lanche: castanhas. Jantar: sopa + proteína.",
-        qua: "Café: smoothie. Almoço: salada + proteína. Lanche: iogurte. Jantar: omelete.",
-        qui: "Café: fruta + pão integral. Almoço: arroz integral + legumes. Lanche: palitos de vegetais. Jantar: grelhado.",
-        sex: "Café: tapioca + fruta. Almoço: proteína magra + salada. Lanche: barrinha. Jantar: sopa.",
-        sab: "Café: ovos mexidos + torrada integral. Almoço: escolha equilibrada. Lanche: iogurte. Jantar: leve.",
-        dom: "Café: panqueca saudável. Almoço: porção balanceada. Lanche: fruta. Jantar: leve."
-      },
-      ruim: {
-        seg: "Café: comece com fruta. Almoço: escolha uma opção mais leve hoje (salada + proteína). Lanche: água + fruta. Jantar: sopa leve.",
-        ter: "Café: água + fruta. Almoço: salada + proteína. Lanche: castanhas. Jantar: refeição mais leve.",
-        qua: "Café: mingau simples. Almoço: grelhado + salada. Lanche: iogurte. Jantar: sopa.",
-        qui: "Café: fruta. Almoço: escolha proteína grelhada e salada. Lanche: fruta. Jantar: omelete.",
-        sex: "Café: fruta + água. Almoço: refeição balanceada. Lanche: nozes. Jantar: leve.",
-        sab: "Café: fruta. Almoço: grelhado + legumes. Lanche: iogurte. Jantar: leve.",
-        dom: "Café: panqueca leve. Almoço: porção equilibrada. Lanche: fruta. Jantar: leve."
-      }
+      melhorar: {/* ...mesmos textos mais leves ... */},
+      ruim: {/* ...mesmos textos de início ... */}
     };
+    // For simplicity, reuse 'basico' for other keys if missing
+    dietTemplates.melhorar = dietTemplates.basico;
+    dietTemplates.ruim = dietTemplates.basico;
 
     const workouts = {
       regular: {
         nivel: "Regular",
         treino: "3x por semana — dias alternados. 30–45min: combinação de cardio (20–30min) + força (15–20min). Inclua alongamentos ao final.",
-        exemplo: ["Seg: Corrida 30min + 10min alongamento", "Qua: Treino de força (membros superiores) 30min", "Sex: HIIT leve 25-30min + alongamento"]
+        exemplo: ["Seg: Corrida 30min + 10min alongamento", "Qua: Treino de força 30min", "Sex: HIIT leve 25-30min + alongamento"]
       },
       ocasional: {
-        nivel: "Ocasional",
-        treino: "2x por semana. Inicie com caminhada e mobilidade. 20–30min por sessão.",
-        exemplo: ["Ter: Caminhada 25min + exercícios de mobilidade", "Qui: Circuito leve com 15-20min de força corporal"]
+        nivel: "Ocasional", treino: "2x por semana. Inicie com caminhada e mobilidade. 20–30min por sessão.",
+        exemplo: ["Ter: Caminhada 25min + mobilidade", "Qui: Circuito leve 15-20min"]
       },
       nunca: {
-        nivel: "Iniciante",
-        treino: "Comece com 15–20min diários: caminhada leve, subir escadas, alongamento. Aumente gradualmente.",
-        exemplo: ["Seg: Caminhada 15min + alongamento", "Qua: Mobilidade 15min", "Sex: Caminhada 20min"]
+        nivel: "Iniciante", treino: "15–20min diários: caminhada leve, subir escadas, alongamento.",
+        exemplo: ["Seg: Caminhada 15min", "Qua: Mobilidade 15min", "Sex: Caminhada 20min"]
       }
     };
 
     const mentalExercises = {
       baixo: ["Continue com suas práticas prazerosas e mantenha rotina."],
-      medio: ["Pausa de 5 min (respiração 4-4), caminhada curta, prática de gratidão (3 coisas positivas)."],
-      alto: ["10 min de meditação guiada, técnica de respiração 4-4-4, buscar apoio profissional se necessário."]
+      medio: ["Pausa de 5 min (respiração 4-4), caminhada curta, prática de gratidão."],
+      alto: ["10 min de meditação guiada, técnica de respiração 4-4-4, procurar apoio profissional se necessário."]
     };
 
     const sleepAdvice = {
-      bom: "Mantenha sua rotina: horários constantes, evite telas 30 min antes, ambiente escuro e temperatura agradável.",
-      regular: "Ajuste horário gradualmente, reduza cafeína após 16h, pratique relaxamento antes de dormir.",
-      ruim: "Priorize higiene do sono: rotina noturna, evitar telas, técnicas de respiração; consultar especialista se persistir."
+      bom: "Mantenha rotina: horários constantes, evite telas 30 min antes.",
+      regular: "Ajuste horário gradualmente, reduza cafeína após 16h.",
+      ruim: "Priorize higiene do sono: rotina noturna, evitar telas; busque ajuda se persistir."
     };
 
-    // Função para gerar plano completo
+    /* ---------------------------
+       Helpers / DOM
+       --------------------------- */
+    const tipoRadios = document.getElementsByName('tipo');
+    const userFields = document.getElementById('userFields');
+    const companyFields = document.getElementById('companyFields');
+    const perfilSelect = document.getElementById('perfilSelect');
+    const greeting = document.getElementById('greeting');
+    const editProfileBtn = document.getElementById('editProfileBtn');
+    const clearProfileBtn = document.getElementById('clearProfileBtn');
+
+    function showFieldsFor(tipo){
+      if(tipo === 'usuario'){
+        userFields.classList.remove('hidden');
+        companyFields.classList.add('hidden');
+        perfilSelect.value = 'usuario';
+      } else {
+        userFields.classList.add('hidden');
+        companyFields.classList.remove('hidden');
+        perfilSelect.value = 'empresa';
+      }
+    }
+    // init
+    showFieldsFor('usuario');
+    tipoRadios.forEach(r => r.addEventListener('change', ()=> showFieldsFor(document.querySelector('input[name="tipo"]:checked').value)));
+
+    // Save profile (optional)
+    document.getElementById('saveProfileBtn').addEventListener('click', ()=>{
+      const tipo = document.querySelector('input[name="tipo"]:checked').value;
+      if(tipo === 'usuario'){
+        const nome = document.getElementById('nome').value;
+        const idade = document.getElementById('idade').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+        const profile = { tipo, nome, idade, email, telefone };
+        localStorage.setItem('vitalab_profile', JSON.stringify(profile));
+        greeting.innerText = `Olá, ${nome || 'usuário'}`;
+        editProfileBtn.classList.remove('hidden');
+        clearProfileBtn.classList.remove('hidden');
+        alert('Perfil salvo! Agora você pode continuar para o diagnóstico.');
+      } else {
+        const companyName = document.getElementById('companyName').value;
+        const companySize = document.getElementById('companySize').value;
+        const industry = document.getElementById('industry').value;
+        const manager = document.getElementById('manager').value;
+        const companyEmail = document.getElementById('companyEmail').value;
+        const profile = { tipo, companyName, companySize, industry, manager, companyEmail };
+        localStorage.setItem('vitalab_profile', JSON.stringify(profile));
+        greeting.innerText = `Empresa: ${companyName || 'empresa'}`;
+        editProfileBtn.classList.remove('hidden');
+        clearProfileBtn.classList.remove('hidden');
+        alert('Perfil empresarial salvo! Agora você pode continuar.');
+      }
+      // scroll to diagnostic
+      document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});
+    });
+
+    document.getElementById('skipProfileBtn').addEventListener('click', ()=>{
+      localStorage.removeItem('vitalab_profile');
+      greeting.innerText = 'Bem-vinda';
+      editProfileBtn.classList.add('hidden');
+      clearProfileBtn.classList.add('hidden');
+      document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Edit / clear profile
+    editProfileBtn.addEventListener('click', ()=>{
+      const profile = JSON.parse(localStorage.getItem('vitalab_profile') || '{}');
+      if(!profile.tipo) return alert('Sem perfil salvo');
+      document.querySelector(`input[name="tipo"][value="${profile.tipo}"]`).checked = true;
+      showFieldsFor(profile.tipo);
+      if(profile.tipo === 'usuario'){
+        document.getElementById('nome').value = profile.nome || '';
+        document.getElementById('idade').value = profile.idade || '';
+        document.getElementById('email').value = profile.email || '';
+        document.getElementById('telefone').value = profile.telefone || '';
+      } else {
+        document.getElementById('companyName').value = profile.companyName || '';
+        document.getElementById('companySize').value = profile.companySize || '';
+        document.getElementById('industry').value = profile.industry || '';
+        document.getElementById('manager').value = profile.manager || '';
+        document.getElementById('companyEmail').value = profile.companyEmail || '';
+        document.getElementById('companyPhone').value = profile.companyPhone || '';
+      }
+      window.scrollTo({top:document.getElementById('cadastro').offsetTop-80, behavior:'smooth'});
+    });
+
+    clearProfileBtn.addEventListener('click', ()=>{
+      localStorage.removeItem('vitalab_profile');
+      greeting.innerText = 'Bem-vinda';
+      editProfileBtn.classList.add('hidden');
+      clearProfileBtn.classList.add('hidden');
+      alert('Perfil removido.');
+    });
+
+    // If profile exists, show greeting
+    (function loadProfile(){
+      const profile = JSON.parse(localStorage.getItem('vitalab_profile') || 'null');
+      if(profile){
+        if(profile.tipo === 'usuario') greeting.innerText = `Olá, ${profile.nome || 'usuário'}`;
+        else greeting.innerText = `Empresa: ${profile.companyName || 'empresa'}`;
+        editProfileBtn.classList.remove('hidden');
+        clearProfileBtn.classList.remove('hidden');
+      }
+    })();
+
+    /* ---------------------------
+       Gerar Plano (user/company)
+       --------------------------- */
     function generatePlan(){
       const sono = document.getElementById('sono').value;
       const atividade = document.getElementById('atividade').value;
       const alimentacao = document.getElementById('alimentacao').value;
       const estresse = document.getElementById('estresse').value;
       const objetivo = document.getElementById('objetivo').value;
-      const perfil = document.getElementById('perfil').value;
-
-      // Monta resumo
-      const introText = `Plano para ${perfil === 'empresa' ? 'programa empresarial' : 'usuário'} — baseado nas suas respostas.`;
+      const perfil = document.getElementById('perfilSelect').value;
+      // Prepare intro
+      const profile = JSON.parse(localStorage.getItem('vitalab_profile') || 'null');
+      let introText = perfil === 'empresa' ? 'Plano Corporativo VitaLab — programa inicial para equipes.' : 'Plano personalizado para você.';
+      if(profile){
+        if(profile.tipo === 'usuario' && profile.nome) introText += ' Usuário: ' + (profile.nome);
+        if(profile.tipo === 'empresa' && profile.companyName) introText += ' Empresa: ' + profile.companyName;
+      }
       document.getElementById('planIntro').innerText = introText;
 
-      // Prepara cards resumidos
+      // Cards resumo
       const planContainer = document.getElementById('planCard');
-      planContainer.innerHTML = `
-        <div class="plan-card">
-          <h4>Atividade</h4>
-          <p class="small">${workouts[atividade].treino}</p>
-        </div>
-        <div class="plan-card">
-          <h4>Alimentação</h4>
-          <p class="small">Plano alimentar recomendado: ${alimentacao === 'equilibrada' ? 'Manter' : alimentacao === 'melhorar' ? 'Melhorar' : 'Iniciar mudanças'}</p>
-        </div>
-        <div class="plan-card">
-          <h4>Saúde mental</h4>
-          <p class="small">${mentalExercises[estresse][0]}</p>
-        </div>
-        <div class="plan-card">
-          <h4>Sono</h4>
-          <p class="small">${sleepAdvice[sono]}</p>
-        </div>
-      `;
+      if(perfil === 'usuario'){
+        planContainer.innerHTML = `
+          <div class="plan-card"><h4>Atividade</h4><p class="small">${workouts[atividade].treino}</p></div>
+          <div class="plan-card"><h4>Alimentação</h4><p class="small">Recomendação: ${alimentacao === 'equilibrada' ? 'Manter' : alimentacao === 'melhorar' ? 'Melhorar' : 'Iniciar mudanças'}</p></div>
+          <div class="plan-card"><h4>Saúde mental</h4><p class="small">${mentalExercises[estresse][0]}</p></div>
+          <div class="plan-card"><h4>Sono</h4><p class="small">${sleepAdvice[sono]}</p></div>
+        `;
+      } else {
+        // empresa resumo
+        planContainer.innerHTML = `
+          <div class="plan-card"><h4>Diagnóstico Organizacional</h4><p class="small">Avaliação inicial: nível médio de estresse ${estresse}, hábitos de atividade ${atividade}.</p></div>
+          <div class="plan-card"><h4>Programa Trimestral</h4><p class="small">Workshops, desafios coletivos e relatórios mensais para gestores.</p></div>
+          <div class="plan-card"><h4>Benefícios</h4><p class="small">Redução de afastamentos; aumento de produtividade; clima organizacional melhor.</p></div>
+        `;
+      }
 
-      // Monta conteúdo completo (fullPlan)
+      // Build full content
       buildFullPlan(sono, atividade, alimentacao, estresse, objetivo, perfil);
 
-      // mostra a seção plano
-      const planoBlock = document.getElementById('plano');
-      planoBlock.style.display = 'block';
-
-      // rola para a seção do plano
-      setTimeout(()=> {
-        document.getElementById('plano').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
+      // Show plano
+      document.getElementById('plano').style.display = 'block';
+      setTimeout(()=> document.getElementById('plano').scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
     }
 
     function buildFullPlan(sono, atividade, alimentacao, estresse, objetivo, perfil){
-      // Dieta semanal segundo categoria
-      let diet = dietTemplates.básico;
+      // Diet
+      let diet = dietTemplates.basico;
       if(alimentacao === 'melhorar') diet = dietTemplates.melhorar;
       if(alimentacao === 'muito_ruim') diet = dietTemplates.ruim;
 
-      // Preenche dieta semanal
+      // Dieta semanal
       const dietWeek = document.getElementById('dietWeek');
       dietWeek.innerHTML = `
         <div class="plan-card"><strong>Segunda</strong><p class="small">${diet.seg}</p></div>
@@ -384,94 +475,101 @@
         <div class="plan-card"><strong>Domingo</strong><p class="small">${diet.dom}</p></div>
       `;
 
-      // Treino
+      // Training
       const trainingPlan = document.getElementById('trainingPlan');
       trainingPlan.innerHTML = `
         <div class="plan-card">
           <h4>${workouts[atividade].nivel}</h4>
           <p class="small">${workouts[atividade].treino}</p>
-          <ul class="small">
-            ${workouts[atividade].exemplo.map(i=>`<li>${i}</li>`).join('')}
-          </ul>
+          <ul class="small">${workouts[atividade].exemplo.map(i=>`<li>${i}</li>`).join('')}</ul>
         </div>
       `;
 
-      // Saúde mental
+      // Mental
       const mentalPlan = document.getElementById('mentalPlan');
-      mentalPlan.innerHTML = `
-        <div class="plan-card">
-          <p class="small">${mentalExercises[estresse].join('</p><p class="small">')}</p>
-        </div>
-      `;
+      mentalPlan.innerHTML = `<div class="plan-card"><p class="small">${mentalExercises[estresse].join('</p><p class="small">')}</p></div>`;
 
-      // Sono
+      // Sleep
       const sleepPlan = document.getElementById('sleepPlan');
-      sleepPlan.innerHTML = `
-        <div class="plan-card">
-          <p class="small">${sleepAdvice[sono]}</p>
-          <ul class="small">
-            <li>Evite telas 30 min antes de deitar</li>
-            <li>Mantenha horário regular</li>
-            <li>Ambiente silencioso e escuro</li>
-          </ul>
-        </div>
-      `;
+      sleepPlan.innerHTML = `<div class="plan-card"><p class="small">${sleepAdvice[sono]}</p><ul class="small"><li>Evite telas 30 min antes</li><li>Mantenha horário regular</li><li>Ambiente silencioso</li></ul></div>`;
 
-      // Metas semanais e checklist
+      // Goals & checklist
       const weeklyGoals = document.getElementById('weeklyGoals');
       weeklyGoals.innerHTML = `
         <li class="small">Completar 3 sessões de exercícios</li>
         <li class="small">Consumir 3 porções de vegetais por dia</li>
-        <li class="small">Praticar 10 min de meditação 4x na semana</li>
-        <li class="small">Melhorar a qualidade do sono</li>
+        <li class="small">Praticar 10 min de meditação 4x/semana</li>
+        <li class="small">Melhorar qualidade do sono</li>
       `;
-
       const dailyChecklist = document.getElementById('dailyChecklist');
       dailyChecklist.innerHTML = `
         <label class="check-item"><input type="checkbox"> Beber 2L de água</label>
-        <label class="check-item"><input type="checkbox"> 20 min de atividade física</label>
+        <label class="check-item"><input type="checkbox"> 20 min de atividade</label>
         <label class="check-item"><input type="checkbox"> Refeições equilibradas</label>
-        <label class="check-item"><input type="checkbox"> 10 min de meditação/respiração</label>
+        <label class="check-item"><input type="checkbox"> 10 min de meditação</label>
         <label class="check-item"><input type="checkbox"> Dormir no horário planejado</label>
       `;
 
-      // Se perfil empresa, ajustar texto e recomendações
-      const fullPlanBlock = document.getElementById('fullPlan');
+      // Company specifics
+      const companySection = document.getElementById('companyPlanSection');
+      const profile = JSON.parse(localStorage.getItem('vitalab_profile') || 'null');
       if(perfil === 'empresa'){
-        // adiciona nota sobre programa empresarial
-        fullPlanBlock.querySelector('p.small').innerText = 'Programa empresarial recomendado: adaptar plano para equipe, com workshops, desafios em grupo e relatórios mensais.';
+        // build a detailed corporate plan
+        companySection.innerHTML = `
+          <div class="card">
+            <h4>Cronograma Trimestral (12 semanas)</h4>
+            <p class="small"><strong>Semanas 1–4:</strong> Onboarding e diagnóstico da equipe; desafios leves; webinário de introdução.</p>
+            <p class="small"><strong>Semanas 5–8:</strong> Programas de nutrição e atividade (workshops práticos); grupos de caminhada; comunicação interna.</p>
+            <p class="small"><strong>Semanas 9–12:</strong> Saúde mental (oficinas), avaliações de impacto e relatório final.</p>
+          </div>
+          <div class="card" style="margin-top:8px;">
+            <h4>Workshops</h4>
+            <ul class="small">
+              <li>Ergonomia e postura no trabalho</li>
+              <li>Alimentação saudável no ambiente corporativo</li>
+              <li>Gestão do estresse e saúde mental</li>
+            </ul>
+          </div>
+          <div class="card" style="margin-top:8px;">
+            <h4>Relatórios para gestores</h4>
+            <p class="small">Relatórios mensais com engajamento, participação e indicadores (sono, exercício, estresse).</p>
+            <p class="small">Como contratar: envie email para <strong>contato@vitalab.com</strong> ou clique no botão de copiar para colar o resumo e chamar por WhatsApp.</p>
+          </div>
+        `;
+        document.getElementById('fullPlanIntro').innerText = profile && profile.companyName ? `Plano corporativo para ${profile.companyName}` : 'Plano corporativo VitaLab';
       } else {
-        fullPlanBlock.querySelector('p.small').innerText = 'Plano detalhado para uso pessoal — adapte conforme suas preferências e acompanhe a evolução.';
+        companySection.innerHTML = '';
+        document.getElementById('fullPlanIntro').innerText = 'Plano pessoal detalhado — adapte conforme preferências.';
       }
     }
 
-    // View / copy / print handlers
+    // Buttons: viewFull, copy, print
     document.getElementById('generateBtn').addEventListener('click', generatePlan);
     document.getElementById('viewFull').addEventListener('click', ()=>{
       const full = document.getElementById('fullPlan');
       full.classList.toggle('hidden');
-      if(!full.classList.contains('hidden')){
-        full.scrollIntoView({behavior:'smooth'});
-        document.getElementById('viewFull').innerText = 'Fechar Plano';
-      } else {
-        document.getElementById('viewFull').innerText = 'Ver Plano Completo';
-      }
+      document.getElementById('viewFull').innerText = full.classList.contains('hidden') ? 'Ver Plano Completo' : 'Fechar Plano';
+      if(!full.classList.contains('hidden')) full.scrollIntoView({behavior:'smooth'});
     });
 
     document.getElementById('copyPlan').addEventListener('click', ()=>{
-      // copia um resumo do plano para a área de transferência
-      const planSummary = document.getElementById('planIntro').innerText + "\\n\\n";
+      const intro = document.getElementById('planIntro').innerText;
       const cards = Array.from(document.querySelectorAll('#planCard .plan-card'));
-      const textParts = cards.map(c => c.querySelector('h4').innerText + ': ' + c.querySelector('p').innerText);
-      const fullText = planSummary + textParts.join('\\n') + '\\n\\n' + 'Ver plano completo no link.';
-      navigator.clipboard.writeText(fullText).then(()=> {
-        alert('Resumo do plano copiado. Agora você pode colar no WhatsApp ou enviar por mensagem.');
-      }).catch(()=> alert('Não foi possível copiar automaticamente — selecione o texto e copie manualmente.'));
+      const parts = cards.map(c => (c.querySelector('h4') ? c.querySelector('h4').innerText + ': ' : '') + (c.querySelector('p') ? c.querySelector('p').innerText : ''));
+      const text = intro + '\\n\\n' + parts.join('\\n') + '\\n\\n' + 'Ver plano completo no link.';
+      navigator.clipboard.writeText(text).then(()=> alert('Resumo do plano copiado! Agora cole no WhatsApp ou envie por mensagem.'));
     });
 
-    document.getElementById('printPlan').addEventListener('click', ()=> {
-      window.print();
-    });
+    document.getElementById('printPlan').addEventListener('click', ()=> window.print());
+
+    /* Optional: fill perfilSelect when signup profile exists */
+    (function syncProfileToForm(){
+      const profile = JSON.parse(localStorage.getItem('vitalab_profile') || 'null');
+      if(profile){
+        if(profile.tipo === 'empresa') perfilSelect.value = 'empresa';
+        else perfilSelect.value = 'usuario';
+      }
+    })();
   </script>
 </body>
 </html>
